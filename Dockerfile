@@ -16,7 +16,10 @@ WORKDIR /var/www
 COPY . .
 
 # Crear carpetas necesarias y asignar permisos
-RUN mkdir -p storage bootstrap/cache \
+RUN mkdir -p storage/framework/sessions \
+    && mkdir -p storage/framework/views \
+    && mkdir -p storage/framework/cache \
+    && mkdir -p bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache
 
 # Instalar dependencias de Laravel
@@ -29,5 +32,8 @@ COPY ./Docker/supervisord.conf /etc/supervisord.conf
 # Exponer el puerto (Koyeb espera 8000)
 EXPOSE 8000
 
-# Ejecutar migraciones antes de arrancar Nginx + PHP-FPM
-CMD php artisan migrate --force && /usr/bin/supervisord -c /etc/supervisord.conf
+# Script de arranque: cachear config/rutas y correr migraciones
+CMD php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan migrate --force && \
+    /usr/bin/supervisord -c /etc/supervisord.conf
