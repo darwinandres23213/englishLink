@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env("DB_HOST",'DB_CONNECTION'),
+    'default' => env("DB_CONNECTION",'DB_CONNECTION'),
 
     /*
     |--------------------------------------------------------------------------
