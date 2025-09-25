@@ -1,0 +1,57 @@
+.topbar,
+.navbar.bg-primary {
+    background: linear-gradient(90deg, #1e293b 0%, #2563eb 100%) !important;
+    color: #fff !important;
+    border-radius: 0 0 40px 0px;
+    box-shadow: 0 4px 20px 0 rgba(30,41,59,0.10);
+    min-height: 60px;
+}
+
+/* Estilos para la barra de búsqueda transparente */
+.navbar-search .form-control {
+    background: rgba(255,255,255,0.15) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    color: white !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-search .form-control::placeholder {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+.navbar-search .form-control:focus {
+    background: rgba(255,255,255,0.25) !important;
+    border-color: rgba(255,255,255,0.5) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.25) !important;
+    color: white !important;
+}
+
+.navbar-search .btn {
+    background: rgba(255,255,255,0.2) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+.navbar-search .btn:hover {
+    background: rgba(255,255,255,0.3) !important;
+}
+
+.topbar .navbar-nav .nav-link,
+.topbar .navbar-nav .dropdown-toggle {
+    color: #fff !important;
+    font-weight: 500;
+}
+.topbar .navbar-nav .nav-link:hover,
+.topbar .navbar-nav .dropdown-toggle:hover {
+    color: #e0e7ef !important;
+}
+.topbar .dropdown-menu {
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+}
+.topbar .dropdown-item:hover {
+    background: #2563eb !important;
+    color: #fff !important;
+}
+.topbar .img-profile {
+    border: 2px solid #38bdf8;
+}
