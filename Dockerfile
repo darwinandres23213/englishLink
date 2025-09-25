@@ -15,12 +15,12 @@ WORKDIR /var/www
 # Copiar código de Laravel
 COPY . .
 
-# Instalar dependencias de Laravel
-RUN composer install --no-dev --optimize-autoloader --no-interaction
-
-# Crear carpetas necesarias y asignar permisos
+# Crear carpetas necesarias y asignar permisos (antes de composer install)
 RUN mkdir -p storage bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache
+
+# Instalar dependencias de Laravel
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Copiar configuración de Nginx y Supervisor
 COPY ./Docker/nginx.conf /etc/nginx/conf.d/default.conf
