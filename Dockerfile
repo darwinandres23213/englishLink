@@ -7,18 +7,18 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Instalar Composer manualmente (evita problemas con mirrors)
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 WORKDIR /var/www
 
 # Copiar código de Laravel
 COPY . .
 
-# Instalar dependencias
+# Instalar dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Crear carpetas necesarias
+# Crear carpetas necesarias y asignar permisos
 RUN mkdir -p storage bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache
 
