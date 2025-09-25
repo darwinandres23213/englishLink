@@ -448,7 +448,7 @@
         <nav class="navbar">
             <div class="nav-brand">
                 <a href="{{ route('welcome') }}">
-                    <img src="{{ asset('img/inicio.png') }}" alt="EnglishLink Logo" class="logo">
+                    <img src="{{ asset('img/Inicio.png') }}" alt="EnglishLink Logo" class="logo">
                     <span>EnglishLink</span>
                 </a>
             </div>
